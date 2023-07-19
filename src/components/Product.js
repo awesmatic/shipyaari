@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
-import { addToCart } from './state'
+import { addToCart } from '../state'
 
 const Product = ({ data }) => {
     const [count, setCount] = useState(1)

@@ -6,7 +6,7 @@ import {
     emptyCart,
     increaseCount,
     removeFromCart
-} from "./state/index";
+} from "../state/index";
 
 const CartModal = () => {
     const dispatch = useDispatch()

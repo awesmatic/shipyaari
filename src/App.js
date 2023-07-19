@@ -2,9 +2,9 @@ import { useEffect } from 'react';
 import { useDispatch } from "react-redux";
 import { Route, Routes } from "react-router-dom";
 import './App.css';
-import Cart from "./Cart";
-import Header from './Header';
-import Home from './Home';
+import Cart from "./components/Cart";
+import Header from './components/Header';
+import Home from './components/Home';
 import { setItems } from './state';
 
 function App() {
