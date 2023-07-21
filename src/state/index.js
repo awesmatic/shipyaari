@@ -15,6 +15,7 @@ export const cartSlice = createSlice({
 
         addToCart: (state, action) => {
             state.cart = [...state.cart, action.payload.item];
+
         },
 
         removeFromCart: (state, action) => {
@@ -51,7 +52,6 @@ export const {
     removeFromCart,
     increaseCount,
     decreaseCount,
-    setIsCartOpen,
     emptyCart,
 } = cartSlice.actions;
 

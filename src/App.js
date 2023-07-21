@@ -2,9 +2,9 @@ import { useEffect } from 'react';
 import { useDispatch } from "react-redux";
 import { Route, Routes } from "react-router-dom";
 import './App.css';
+import Home from './components/Home';
 import Cart from "./components/Cart";
 import Header from './components/Header';
-import Home from './components/Home';
 import { setItems } from './state';
 
 function App() {
@@ -12,7 +12,7 @@ function App() {
   useEffect(() => {
     fetch('https://dummyjson.com/products')
       .then(res => res.json())
-      .then((data) => dispatch(setItems(data.products)));
+      .then((data) => dispatch(setItems(data?.products)));
   }, [])
 
   return (
@@ -22,7 +22,6 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="cart" element={<Cart />} />
       </Routes>
-
 
     </div>
   );

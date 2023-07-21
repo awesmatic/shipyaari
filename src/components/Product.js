@@ -1,10 +1,31 @@
 import React, { useState } from 'react'
-import { useDispatch } from 'react-redux'
-import { addToCart } from '../state'
+import { useDispatch, useSelector } from 'react-redux'
+import { addToCart, increaseCount } from '../state'
 
 const Product = ({ data }) => {
     const [count, setCount] = useState(1)
+    const product = useSelector((state) => state.cart.cart)
     const dispatch = useDispatch()
+
+    const addToCartHandler = () => {
+
+        let isPresent = false;
+
+        product.map((item) => {
+            if (item.id === data.id) {
+                isPresent = true;
+            }
+        })
+
+        if (isPresent) {
+            dispatch(increaseCount({ id: data.id }))
+        } else {
+            dispatch(addToCart({ item: { ...data, count } }));
+        }
+
+
+
+    }
 
     return (
 
@@ -32,9 +53,7 @@ const Product = ({ data }) => {
                 </div>
                 <button
                     className='bg-blue-500  text-white font-bold py-2 px-2 rounded'
-                    onClick={() => {
-                        dispatch(addToCart({ item: { ...data, count } }));
-                    }}
+                    onClick={addToCartHandler}
 
                 >
                     Add to Cart
